@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="generator" content="Docusaurus v2.0.0-alpha.66">
 <link rel="search" type="application/opensearchdescription+xml" title="advance" href="/opensearch.xml"><title data-react-helmet="true">ts-unknown | advance</title><meta data-react-helmet="true" property="og:image" content="https://hfcui.com/img/supabase-og-image.png"><meta data-react-helmet="true" property="twitter:image" content="https://hfcui.com/img/supabase-og-image.png"><meta data-react-helmet="true" name="twitter:image:alt" content="Image for advance"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="current"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-react-helmet="true" property="og:title" content="ts-unknown | advance"><meta data-react-helmet="true" name="description" content="unknown 类型，它是 any 类型对应的安全类型。"><meta data-react-helmet="true" property="og:description" content="unknown 类型，它是 any 类型对应的安全类型。"><meta data-react-helmet="true" property="og:url" content="https://hfcui.com/docs/ts/goods/tsUnknownType"><link data-react-helmet="true" rel="shortcut icon" href="/favicon.ico"><link data-react-helmet="true" rel="canonical" href="https://hfcui.com/docs/ts/goods/tsUnknownType"><link rel="stylesheet" href="/styles.972e0ec2.css">
-<link rel="stylesheet" href="/main.3431d232.css">
+<link rel="stylesheet" href="/main.e7aa4b5a.css">
 <link rel="preload" href="/styles.76d944b2.js" as="script">
-<link rel="preload" href="/runtime~main.aef55dd5.js" as="script">
-<link rel="preload" href="/main.9768f7db.js" as="script">
+<link rel="preload" href="/runtime~main.e5844d94.js" as="script">
+<link rel="preload" href="/main.64a71367.js" as="script">
 <link rel="preload" href="/1.6cc9eb2f.js" as="script">
 <link rel="preload" href="/2.0aafcf71.js" as="script">
 <link rel="preload" href="/3.3a899072.js" as="script">
 <link rel="preload" href="/1be78505.d3c09a7f.js" as="script">
-<link rel="preload" href="/935f2afb.bae98abf.js" as="script">
+<link rel="preload" href="/935f2afb.222b8837.js" as="script">
 <link rel="preload" href="/17896441.c7a7a19b.js" as="script">
 <link rel="preload" href="/e7b74433.6a771cc2.js" as="script">
 </head>
@@ -24,13 +24,13 @@
 </span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">if</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">value </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">instanceof</span><span class="token plain"> </span><span class="token class-name">Date</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">return</span><span class="token plain"> value</span><span class="token punctuation" style="color:rgb(248, 248, 242)">.</span><span class="token method function property-access" style="color:rgb(80, 250, 123)">toISOString</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token plain"></span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block">
 </span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">return</span><span class="token plain"> </span><span class="token known-class-name class-name">String</span><span class="token punctuation" style="color:rgb(248, 248, 242)">(</span><span class="token plain">value</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span></div></div></div></div></div><h2><a aria-hidden="true" tabindex="-1" class="anchor" id="场景"></a>场景<a aria-hidden="true" tabindex="-1" class="hash-link" href="#场景" title="Direct link to heading">#</a></h2><h3><a aria-hidden="true" tabindex="-1" class="anchor" id="从-localstorage-中读取json"></a>从 localStorage 中读取JSON<a aria-hidden="true" tabindex="-1" class="hash-link" href="#从-localstorage-中读取json" title="Direct link to heading">#</a></h3><p>因为我们不知道在反序列化持久化的 JSON 字符串后我们会得到什么类型的值。我们将使用 unknown 作为反序列化值的类型。那么在使用返回值之前必须进行某种形式的类型检查。</p></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/ts/goods/tsClass"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« ts中的class</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/docs/ts/goods/tsNeverType"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">ts-never »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_3SO_"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#类型保护" class="table-of-contents__link">类型保护</a></li><li><a href="#场景" class="table-of-contents__link">场景</a><ul><li><a href="#从-localstorage-中读取json" class="table-of-contents__link">从 localStorage 中读取JSON</a></li></ul></li></ul></div></div></div></div></main></div></div></div>
 <script src="/styles.76d944b2.js"></script>
-<script src="/runtime~main.aef55dd5.js"></script>
-<script src="/main.9768f7db.js"></script>
+<script src="/runtime~main.e5844d94.js"></script>
+<script src="/main.64a71367.js"></script>
 <script src="/1.6cc9eb2f.js"></script>
 <script src="/2.0aafcf71.js"></script>
 <script src="/3.3a899072.js"></script>
 <script src="/1be78505.d3c09a7f.js"></script>
-<script src="/935f2afb.bae98abf.js"></script>
+<script src="/935f2afb.222b8837.js"></script>
 <script src="/17896441.c7a7a19b.js"></script>
 <script src="/e7b74433.6a771cc2.js"></script>
 </body>
