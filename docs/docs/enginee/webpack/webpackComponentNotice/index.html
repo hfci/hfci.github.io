@@ -6,16 +6,16 @@
 <meta name="generator" content="Docusaurus v2.0.0-alpha.66">
 <link rel="search" type="application/opensearchdescription+xml" title="advance" href="/opensearch.xml"><title data-react-helmet="true">webpack打包资源包注意事项 | advance</title><meta data-react-helmet="true" property="og:image" content="https://hfcui.com/img/supabase-og-image.png"><meta data-react-helmet="true" property="twitter:image" content="https://hfcui.com/img/supabase-og-image.png"><meta data-react-helmet="true" name="twitter:image:alt" content="Image for advance"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docsearch:language" content="en"><meta data-react-helmet="true" name="docsearch:version" content="current"><meta data-react-helmet="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-react-helmet="true" property="og:title" content="webpack打包资源包注意事项 | advance"><meta data-react-helmet="true" name="description" content="1. 处理package里面的异步资源"><meta data-react-helmet="true" property="og:description" content="1. 处理package里面的异步资源"><meta data-react-helmet="true" property="og:url" content="https://hfcui.com/docs/enginee/webpack/webpackComponentNotice"><link data-react-helmet="true" rel="shortcut icon" href="/favicon.ico"><link data-react-helmet="true" rel="canonical" href="https://hfcui.com/docs/enginee/webpack/webpackComponentNotice"><link rel="stylesheet" href="/styles.4f96d523.css">
 <link rel="stylesheet" href="/main.0835675c.css">
-<link rel="preload" href="/styles.cb438303.js" as="script">
-<link rel="preload" href="/runtime~main.2df7a04a.js" as="script">
-<link rel="preload" href="/main.54ef68de.js" as="script">
-<link rel="preload" href="/1.67c80124.js" as="script">
-<link rel="preload" href="/2.d989700c.js" as="script">
-<link rel="preload" href="/4.c89136d3.js" as="script">
-<link rel="preload" href="/1be78505.98e12325.js" as="script">
-<link rel="preload" href="/935f2afb.8234b541.js" as="script">
-<link rel="preload" href="/17896441.add88f5d.js" as="script">
-<link rel="preload" href="/d9e65e3d.31b27dea.js" as="script">
+<link rel="preload" href="/styles.ce2e2a7f.js" as="script">
+<link rel="preload" href="/runtime~main.aea7cb4e.js" as="script">
+<link rel="preload" href="/main.9b8dfcb8.js" as="script">
+<link rel="preload" href="/1.274c56d7.js" as="script">
+<link rel="preload" href="/2.56542e09.js" as="script">
+<link rel="preload" href="/4.0359f651.js" as="script">
+<link rel="preload" href="/1be78505.4a7357f1.js" as="script">
+<link rel="preload" href="/935f2afb.aa2bbeaf.js" as="script">
+<link rel="preload" href="/17896441.d7cb88e0.js" as="script">
+<link rel="preload" href="/d9e65e3d.f907c5bc.js" as="script">
 </head>
 <body>
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script><div id="__docusaurus">
@@ -23,15 +23,15 @@
 </span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">    </span><span class="token keyword" style="color:rgb(189, 147, 249);font-style:italic">return</span><span class="token plain"> img</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block">
 </span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">)</span><span class="token punctuation" style="color:rgb(248, 248, 242)">;</span><span class="token plain"></span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain" style="display:inline-block">
 </span></div></div></div></div></div><blockquote><p>如上两种打包图片资源为例，<code>webpack</code>打包出来的资源是以静态路径的形式加载的，<code>rollup</code>则是以依赖的形式加载的.静态路径的资源再被别的项目引用的时候，就分析不到这个图片的依赖，那么打包出来的资源也就不包含这个图片导致失败。</p></blockquote><p>如果就要使用<code>webpack</code>可以采用以下解决方案:</p><h3><a aria-hidden="true" tabindex="-1" class="anchor" id="静态依赖上传到oss，修改打包的outputpublicpath"></a>静态依赖上传到<code>oss</code>，修改打包的<code>output.publicPath</code><a aria-hidden="true" tabindex="-1" class="hash-link" href="#静态依赖上传到oss，修改打包的outputpublicpath" title="Direct link to heading">#</a></h3><h3><a aria-hidden="true" tabindex="-1" class="anchor" id="使用rollup打包"></a>使用<code>rollup</code>打包<a aria-hidden="true" tabindex="-1" class="hash-link" href="#使用rollup打包" title="Direct link to heading">#</a></h3><h2><a aria-hidden="true" tabindex="-1" class="anchor" id="2-loader配置正则的时候一定要严格"></a>2. loader配置正则的时候一定要严格<a aria-hidden="true" tabindex="-1" class="hash-link" href="#2-loader配置正则的时候一定要严格" title="Direct link to heading">#</a></h2><p>比如<code>/\.js/</code>，如果项目有种<code>json</code>文件，那么<code>babel-loader</code>也会处理<code>json</code>文件所以应该是:</p><div class="mdxCodeBlock_1XEh"><div class="codeBlockContent_1u-d"><button tabindex="0" type="button" aria-label="Copy code to clipboard" class="copyButton_10dd">Copy</button><div class="prism-code language-json codeBlock_3iAC"><div class="codeBlockLines_b7E3" style="color:#F8F8F2;background-color:#282A36"><div class="token-line" style="color:#F8F8F2"><span class="token punctuation" style="color:rgb(248, 248, 242)">{</span><span class="token plain"></span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain">  </span><span class="token property">&quot;test&quot;</span><span class="token operator">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(255, 121, 198)">&quot;/\.js$/&quot;</span><span class="token plain"></span></div><div class="token-line" style="color:#F8F8F2"><span class="token plain"></span><span class="token punctuation" style="color:rgb(248, 248, 242)">}</span></div></div></div></div></div></div></article><div class="margin-vert--lg"><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"><a class="pagination-nav__link" href="/docs/enginee/webpack/webpackFood"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">« webpack知识点</div></a></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/docs/enginee/webpack/webpackPlugin"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">写webpack插件 »</div></a></div></nav></div></div></div><div class="col col--3"><div class="tableOfContents_3SO_"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-处理package里面的异步资源" class="table-of-contents__link">1. 处理package里面的异步资源</a><ul><li><a href="#静态依赖上传到oss，修改打包的outputpublicpath" class="table-of-contents__link">静态依赖上传到<code>oss</code>，修改打包的<code>output.publicPath</code></a></li><li><a href="#使用rollup打包" class="table-of-contents__link">使用<code>rollup</code>打包</a></li></ul></li><li><a href="#2-loader配置正则的时候一定要严格" class="table-of-contents__link">2. loader配置正则的时候一定要严格</a></li></ul></div></div></div></div></main></div></div></div>
-<script src="/styles.cb438303.js"></script>
-<script src="/runtime~main.2df7a04a.js"></script>
-<script src="/main.54ef68de.js"></script>
-<script src="/1.67c80124.js"></script>
-<script src="/2.d989700c.js"></script>
-<script src="/4.c89136d3.js"></script>
-<script src="/1be78505.98e12325.js"></script>
-<script src="/935f2afb.8234b541.js"></script>
-<script src="/17896441.add88f5d.js"></script>
-<script src="/d9e65e3d.31b27dea.js"></script>
+<script src="/styles.ce2e2a7f.js"></script>
+<script src="/runtime~main.aea7cb4e.js"></script>
+<script src="/main.9b8dfcb8.js"></script>
+<script src="/1.274c56d7.js"></script>
+<script src="/2.56542e09.js"></script>
+<script src="/4.0359f651.js"></script>
+<script src="/1be78505.4a7357f1.js"></script>
+<script src="/935f2afb.aa2bbeaf.js"></script>
+<script src="/17896441.d7cb88e0.js"></script>
+<script src="/d9e65e3d.f907c5bc.js"></script>
 </body>
 </html>
